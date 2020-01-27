@@ -1,0 +1,17 @@
+# vim:filetype=sh
+
+appendnav() {
+	# $1: location
+	# $2: Name
+	printf "<a href='$1'>$2</a>\n"
+}
+
+printf "<div class=\"header\"><nav>\n"
+appendnav / index
+appendnav //git.carbslinux.org git
+appendnav //dl.carbslinux.org downloads
+appendnav /wiki wiki
+appendnav /install.html installation
+appendnav /packages packages
+appendnav /repositories repostories
+printf "</nav></div><div class=\"border\"></div>\n"

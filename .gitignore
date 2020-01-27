@@ -1,0 +1,6 @@
+site/
+header
+footer
+src/packages/
+src/wiki/
+*.tar.gz

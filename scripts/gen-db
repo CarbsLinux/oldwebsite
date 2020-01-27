@@ -1,0 +1,54 @@
+#!/bin/sh
+
+# $1 = Root directory for Carbs Website
+# If $1 does not exist, it will assume 
+# that you are on the root directory.
+
+# Since I don't manage a proper community
+# repository yet, I am not managing maintainers.
+
+RootDir="${1-${PWD}}"
+PackagesDir="$(realpath "$RootDir/packages")"
+mkdir -pv "$PackagesDir"
+touch "$PackagesDir/index.md" "$PackagesDir/db"
+
+GitRepo="$PWD/repository"
+
+git clone --quiet --depth 1 git://git.carbslinux.org/repository
+
+cd "$GitRepo" || exit 1
+for pkg in ./*/* ; do
+	[ -r "$pkg/version" ] || continue
+	read -r version _ < "$pkg/version"
+	read -r source _ < "$pkg/sources"
+	[ -z "${source##*://*}" ] || source=null
+
+	printf "${pkg##./}\t${version}\t${source}\tCem Keylan\tcem@ckyln.com\n"
+done > "$PackagesDir/db"
+
+cat > "$PackagesDir/index.md" <<EOF
+Package Database
+================
+
+Date: $(date -u)
+
+[Click here](/packages/db) to see the raw package database
+
+| Repository/Software | Version | Source | Maintainer |
+|:------------------- | :-----: | :-----:| ----------:|
+EOF
+
+cd "$GitRepo" || exit 1
+
+for pkg in ./*/* ; do
+	[ -r "$pkg/version" ] || continue
+	printf "| ${pkg##./} | " >> "$PackagesDir/index.md"
+	read -r version rel < "$pkg/version"
+	printf "$version-$rel | " >> "$PackagesDir/index.md"
+	read -r source _ < "$pkg/sources"
+	[ -z "${source##*://*}" ] || source=null
+	printf "$source | " >> "$PackagesDir/index.md"
+	printf "Cem Keylan cem@ckyln.com |\n" >> "$PackagesDir/index.md"
+done
+
+rm -rf "$GitRepo"

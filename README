@@ -1,0 +1,9 @@
+Carbs Linux website
+===================
+
+Carbs Linux website sources.
+
+Tools needed,
+
+* Plan9 tools (rc, mk)
+* discount (markdown compiler)
