@@ -10,7 +10,7 @@ html:V: header footer repository wiki blog
 	outputhtml=`{echo $md | sed -e 's/src/site/' -e 's/.md/.html/'}{\
 	mkdir -pv `{dirname $outputhtml} ; \
 	TITLE=`{basename $md | cut -d . -f 1} sh ./header; \
-	markdown -f toc -html5 -squash $md; \
+	markdown $md; \
 	sh ./footer} > $outputhtml
 
 static: html
@@ -36,7 +36,7 @@ blog:V:
 
 wiki:V:
 	git clone --quiet --depth 1 git://git.carbslinux.org/wiki wiki
-	mv wiki/wiki.carbslinux.org src/wiki
+	mv wiki/wiki src/wiki
 	rm -rf wiki
 	sh -c 'scripts/gen-wiki-index'
 
