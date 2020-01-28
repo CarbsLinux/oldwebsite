@@ -34,8 +34,8 @@ Date: $(date -u)
 
 [Click here](/packages/db) to see the raw package database
 
-| Repository/Software | Version | Source | Maintainer |
-|:------------------- | :-----: | :-----:| ----------:|
+| Repository/Software | Version |
+|:------------------- | ------: |
 EOF
 
 cd "$GitRepo" || exit 1
@@ -44,11 +44,11 @@ for pkg in ./*/* ; do
 	[ -r "$pkg/version" ] || continue
 	printf "| ${pkg##./} | " >> "$PackagesDir/index.md"
 	read -r version rel < "$pkg/version"
-	printf "$version-$rel | " >> "$PackagesDir/index.md"
-	read -r source _ < "$pkg/sources"
-	[ -z "${source##*://*}" ] || source=null
-	printf "$source | " >> "$PackagesDir/index.md"
-	printf "Cem Keylan cem@ckyln.com |\n" >> "$PackagesDir/index.md"
+	printf "$version-$rel |\n" >> "$PackagesDir/index.md"
+#	read -r source _ < "$pkg/sources"
+#	[ -z "${source##*://*}" ] || source=null
+#	printf "$source | " >> "$PackagesDir/index.md"
+#	printf "Cem Keylan cem@ckyln.com |\n" >> "$PackagesDir/index.md"
 done
 
 rm -rf "$GitRepo"
