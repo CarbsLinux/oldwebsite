@@ -36,6 +36,7 @@ but I will be adding a little more for the intended functionality.
 Downtimes can be expected.
 
 UPDATE: ssl is now working.
+UPDATE2: downloads are back again.
 
 ### Jan 22 2020
 
