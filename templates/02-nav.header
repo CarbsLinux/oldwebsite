@@ -8,7 +8,7 @@ appendnav() {
 
 printf "<div class=\"header\"><nav>\n"
 appendnav / index
-appendnav //git.carbslinux.org git
+appendnav /git git
 appendnav //dl.carbslinux.org downloads
 appendnav /blog blog
 appendnav /wiki wiki

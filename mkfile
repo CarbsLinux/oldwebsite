@@ -59,4 +59,9 @@ pkg:QV: clean all
 
 install:V: all
 	[ $#DESTDIR -eq 1 ]
+	mkdir -p $DESTDIR
 	cp -r site $DESTDIR
+
+uninstall:V:
+	[ $#DESTDIR -eq 1 ]
+	rm -rf $DESTDIR/site

@@ -47,7 +47,7 @@ Blog Index
 ==========
 
 This is the Carbs Linux Blog Index. You can find every post
-here.
+here. [RSS Feed](https://carbslinux.org/rss.xml)
 
 EOF
 for post in $(find "$blogdir" -type f | sort -r) ; do
