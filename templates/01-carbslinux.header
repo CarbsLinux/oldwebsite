@@ -1,2 +1,2 @@
 #vim:filetype=sh
-printf "<div class=title><h1 class=\"title\">Carbs Linux <span class=\"subTitle\">a simple busybox linux distribution</span></h1></div>\n"
+printf "<p class=header><strong>Carbs Linux - a simple busybox linux distribution</strong></p>"
