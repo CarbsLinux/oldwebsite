@@ -1,0 +1,60 @@
+#!/bin/sh -e
+
+# $1: blog directory
+# $2: site root directory
+
+usage() { printf "usage: ${0##*/} <blog directory> <src root directory>\n"; exit 1 ;}
+
+[ "$2" ] || usage
+
+blogdir="$(realpath "$1")"
+rootdir="$(realpath "$2")"
+
+genrss() {
+	cat <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+>
+	<channel>
+		<title>Carbs Linux</title>
+		<description>a simple busybox linux distribution</description>		
+		<link>https://carbslinux.org</link>
+		<atom:link href="https://carbslinux.org/rss.xml" rel="self" type="application/rss+xml" />
+		<lastBuildDate>$(date)</lastBuildDate>
+EOF
+for post in $(find "$blogdir" -type f | sort -r) ; do
+	cat <<EOF
+		<item>
+			<title>$(printf "$post" | cut -d . -f 1 | cut -d '-' -f 4-)</title>
+			<dc:creator>Cem Keylan</dc:creator>
+			<link>https://carbslinux.org/blog/$(printf "${post##*/}" | sed 's/.md/.html/')</link>
+		</item>
+EOF
+cat <<EOF
+	</channel>
+</rss>
+EOF
+done
+}
+
+genindex() {
+cat <<EOF
+Blog Index
+==========
+
+This is the Carbs Linux Blog Index. You can find every post
+here.
+
+EOF
+for post in $(find "$blogdir" -type f | sort -r) ; do
+	printf "* $(date +%b\ %d\ %Y -d "$(printf "${post##*/}" | cut -d '-' -f -3)"): [$(printf "$post" | cut -d '-' -f 4- | cut -d . -f 1)](/blog/$(printf "${post##*/}" | sed 's/.md/.html/'))\n"
+done
+}
+
+genrss > "$rootdir/rss.xml"
+mkdir -p "$rootdir/blog"
+genindex > "$rootdir/blog/index.md"
+install -m644 blog/*.md -t "$rootdir/blog"
