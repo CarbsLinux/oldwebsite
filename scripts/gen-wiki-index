@@ -1,0 +1,16 @@
+#!/bin/sh -e
+
+wikidir="$(realpath src/wiki)"
+
+cd "$wikidir" || exit 1
+
+cat >> index.md <<EOF
+
+Content
+-------
+
+EOF
+for page in $(find . -type f | grep -v './index.md' | sort) ; do
+	pagelink="$(printf "$page" | sed -e 's/.\///' -e 's/.md/.html/')"
+	printf "* [$pagelink]($pagelink)\n" >> index.md
+done
