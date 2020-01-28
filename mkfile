@@ -4,7 +4,7 @@ MARKDOWNOPTS="-html5 -squash"
 all:Q: html repository static
 	echo Built website
 
-html:V: header footer repository wiki
+html:V: header footer repository wiki blog
 	for(dir in `{find src -type d}) mkdir -p `{ echo $dir | sed 's/src/site/'}
 	for(md in `{find src -name '*.md'})\
 	outputhtml=`{echo $md | sed -e 's/src/site/' -e 's/.md/.html/'}{\
@@ -31,18 +31,23 @@ footer:
 repository:V:
 	sh -c 'scripts/gen-db ./src'
 
+blog:V:
+	sh -c 'scripts/gen-blog ./blog ./src'
+
 wiki:V:
 	git clone --quiet --depth 1 git://git.carbslinux.org/wiki wiki
 	mv wiki/wiki.carbslinux.org src/wiki
 	rm -rf wiki
+	sh -c 'scripts/gen-wiki-index'
 
 clean:V:
-	rm -rf site footer header src/packages src/wiki site.tar.gz \
+	rm -rf site footer header src/blog src/rss.xml \
+	src/packages src/wiki site.tar.gz \
 		website-master.tar.gz
 
 dist:V: clean
 	mkdir website-master
-	cp -R README mkfile scripts src templates \
+	cp -R README mkfile blog scripts src templates \
 		website-master
 	tar -cf website-master.tar website-master
 	gzip website-master.tar
