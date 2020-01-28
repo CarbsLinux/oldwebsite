@@ -1,29 +1,29 @@
-/* My stylesheet with the dracula colorscheme */
 /* Cem Keylan (C) 2019                            */
 
 :root {
-    --color0:      #000000;
-    --color1:      #FF5555;
-    --color2:      #50FA7B;
-    --color3:      #F1Fa8C;
-    --color4:      #BD93F9;
-    --color5:      #FF79C6;
-    --color6:      #8BE9FD;
-    --color7:      #BFBFBF;
-    --color8:      #4D4D4D;
-    --color9:      #FF6E67;
-    --color10:     #5AF78E;
-    --color11:     #f4f99d;
-    --color12:     #caa9fa;
-    --color13:     #ff92d0;
-    --color14:     #9aedfe;
-    --color15:     #e6e6e6;
-    --fg:          #f8f8f2;
-    --bg:          #282a36;
-    --altbg:       #000000;
-    --link:        #FF79C6;
-    --linkalt:     #BD93f9;
+    --color0:      #0A1E2B;
+    --color1:      #5C5B6F;
+    --color2:      #9B506D;
+    --color3:      #C34266;
+    --color4:      #4E708D;
+    --color5:      #BF6790;
+    --color6:      #528899;
+    --color7:      #c7bac3;
+    --color8:      #8b8288;
+    --color9:      #5C5B6F;
+    --color10:     #9B506D;
+    --color11:     #C34266;
+    --color12:     #4E708D;
+    --color13:     #BF6790;
+    --color14:     #528899;
+    --color15:     #c7bac3;
+    --fg:          #c7bac3;
+    --bg:          #0a1e2b;
+    --altbg:       #bf6790;
+    --link:        #bf6790;
+    --linkalt:     #4e708d;
 }
+
 
 html {
 	background-color: var(--bg);
