@@ -35,6 +35,8 @@ Web Server is now on a Carbs Linux server. It is not complete yet,
 but I will be adding a little more for the intended functionality.
 Downtimes can be expected.
 
+UPDATE: ssl is now working.
+
 ### Jan 22 2020
 
 Expect downtime on Jan 24 2020 22:00 UTC as I will be migrating
