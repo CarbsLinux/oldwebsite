@@ -3,4 +3,5 @@ header
 footer
 src/packages/
 src/wiki/
+src/blog
 *.tar.gz
