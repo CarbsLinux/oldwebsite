@@ -25,6 +25,7 @@ for pkg in ./*/* ; do
 
 	printf "${pkg##./}\t${version}\t${source}\tCem Keylan\tcem@ckyln.com\n"
 done > "$PackagesDir/db"
+cp "$PackagesDir/db" "$PackagesDir/db.tsv"
 
 cat > "$PackagesDir/index.md" <<EOF
 Package Database
