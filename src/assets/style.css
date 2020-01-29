@@ -5,10 +5,10 @@
     --color1:      #5C5B6F;
     --color2:      #9B506D;
     --color3:      #C34266;
-    --color4:      #4E708D;
+    --color4:      #7B9BB7;
     --color5:      #BF6790;
-    --color6:      #528899;
-    --color7:      #c7bac3;
+    --color6:      #6a9faf;
+    --color7:      #A676D2;
     --color8:      #8b8288;
     --color9:      #5C5B6F;
     --color10:     #9B506D;
@@ -17,8 +17,8 @@
     --color13:     #BF6790;
     --color14:     #528899;
     --color15:     #c7bac3;
-    --fg:          #c7bac3;
-    --bg:          #0a1e2b;
+    --fg:          #0a1e2b;
+    --bg:          #ffffff;
     --altbg:       #bf6790;
     --link:        #bf6790;
     --linkalt:     #4e708d;
@@ -37,6 +37,9 @@ html {
 }
 .header {
 	text-align: center;
+}
+.header strong{
+	color: var(--color5)
 }
 .header a{
 	text-decoration: none;
@@ -59,27 +62,17 @@ html {
 }
 a { 
 	text-decoration: none;
+	font-weight: bold;
 	color: var(--link);
 }
 a:hover {
 	text-decoration: underline;
+	font-weight: bold;
 	color: var(--linkalt);
 }
 .post-title {
 	text-align: center;
 }
-/*code {
-    color: var(--color5);
-    overflow-x: auto;
-}
-
-pre {
-    background: var(--color8);
-    border: 1px solid var(--color12);
-    border-radius: 4px;
-    padding: 5px;
-    display: block;
-}*/
 ul li::before {
 	color: var(--color4);
 }
@@ -100,11 +93,11 @@ code {
 }
 p,tr,td,table { color: var(--fg); }
 h1 {
-	color: var(--color4);
+	color: var(--color7);
 	font-weight: bolder;
 }
 h2 {
-	color: var(--color6);
+	color: var(--color7);
 	font-weight: bold;
 }
 h3 {
