@@ -12,7 +12,7 @@ appendnav /git git
 appendnav //dl.carbslinux.org downloads
 appendnav /blog blog
 appendnav /wiki wiki
-appendnav /install.html installation
+appendnav /wiki/install.html installation
 appendnav /packages packages
 appendnav /repositories repostories
 printf "</nav></div><div class=\"border\"></div>\n"
