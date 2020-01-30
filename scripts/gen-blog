@@ -25,6 +25,7 @@ for post in $(find "$blogdir" -type f | sort -r) ; do
 	cat <<EOF
 		<item>
 			<title>$(printf "$post" | cut -d . -f 1 | cut -d '-' -f 4-)</title>
+			<pubDate>$(date -r "$post" +%a,\ %d\ %b\ %Y)</pubDate>
 			<dc:creator>Cem Keylan</dc:creator>
 			<link>https://carbslinux.org/blog/$(printf "${post##*/}" | sed 's/.md/.html/')</link>
 			<description>$(sed "/^**Date:**/d;/^#/d;s/\&/\&amp;/;s/>/\&gt;/;s/</\&lt;/;s/'/\&apos;/" "$post")</description>
