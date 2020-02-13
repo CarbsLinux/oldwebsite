@@ -29,6 +29,13 @@ Links
 News
 ----
 
+### Feb 13 2020
+
+Runit is now released on the core repository! You can now replace
+busybox-init with runit-init. You can also replace the busybox runit
+utilities with the actual runit. This will reduce the dependency on
+runit greatly.
+
 ### Jan 28 2020
 
 Web Server is now on a Carbs Linux server. It is not complete yet,
