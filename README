@@ -6,6 +6,6 @@ Carbs Linux website sources.
 Tools needed,
 
 * Plan9 tools (rc, mk)
-* Some sort of coreutils
+* Some sort of coreutils (did not test it yet with sbase)
 * discount (markdown compiler)
 * Git
