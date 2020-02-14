@@ -6,4 +6,6 @@ Carbs Linux website sources.
 Tools needed,
 
 * Plan9 tools (rc, mk)
+* Some sort of coreutils
 * discount (markdown compiler)
+* Git
