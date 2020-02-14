@@ -40,6 +40,7 @@ wiki:V:
 	for(md in `{find wiki -name '*.md'}){
 	printf '\n' >> $md
 	git log $md | grep Date | sed 's/Date:/**Last Edit:**/;1q' >> $md
+	printf '\n' >> $md
 	git log $md | grep Author | sed 's/Author:/**Author:**/;1q' >> $md
 	}
 	cd ..
