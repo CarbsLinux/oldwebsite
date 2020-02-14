@@ -35,7 +35,14 @@ blog:V:
 	sh -c 'scripts/gen-blog ./blog ./src'
 
 wiki:V:
-	git clone --quiet --depth 1 git://git.carbslinux.org/wiki wiki
+	git clone --quiet git://git.carbslinux.org/wiki wiki
+	cd wiki
+	for(md in `{find wiki -name '*.md'}){
+	printf '\n' >> $md
+	git log $md | grep Date | sed 's/Date:/**Last Edit:**/;1q' >> $md
+	git log $md | grep Author | sed 's/Author:/**Author:**/;1q' >> $md
+	}
+	cd ..
 	mv wiki/wiki src/wiki
 	rm -rf wiki
 	sh -c 'scripts/gen-wiki-index'
