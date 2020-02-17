@@ -29,6 +29,10 @@ Links
 News
 ----
 
+### Feb 18 2020
+
+A new tarball is released. It can be found on <https://dl.carbslinux.org>.
+
 ### Feb 14 2020
 
 **IMPORTANT!** Carbs-init update to be released on 17th of February
