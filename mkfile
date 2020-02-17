@@ -38,7 +38,7 @@ wiki:V:
 	git clone --quiet git://git.carbslinux.org/wiki wiki
 	cd wiki
 	for(md in `{find wiki -name '*.md' ! -name 'index.md' }){
-	printf '\n' >> $md
+	printf '\n### Git Commit Information\n\n' >> $md
 	git log $md | grep Date | sed 's/Date:/* **Last Edit:**/;1q' >> $md
 	printf '* **Commit Message**: ' >> $md
 	git log -1 '--pretty=%B' $md | awk 'NF' >> $md
