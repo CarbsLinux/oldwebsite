@@ -33,6 +33,9 @@ News
 
 A new tarball is released. It can be found on <https://dl.carbslinux.org>.
 
+**edit:** I have removed the tarball because of a bootstrapping issue. 
+I will be re-adding it later today.
+
 ### Feb 14 2020
 
 **IMPORTANT!** Carbs-init update to be released on 17th of February
