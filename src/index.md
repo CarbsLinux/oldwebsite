@@ -167,7 +167,9 @@ Installation instruction are now complete. A review would be greatly appreciated
 ### Dec 15 2019
 
 Carbs Linux Wiki is now available to be edited and updated by the users go
-to the [wiki](//wiki.carbslinux.org) to obtain more information.
+to the [wiki](//carbslinux.org/wiki) to obtain more information.
+
+**February 2020 EDIT:** Changed link for wiki
 
 ### Dec 12 2019
 
