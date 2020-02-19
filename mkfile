@@ -36,13 +36,15 @@ blog:V:
 
 wiki:V:
 	git clone --quiet git://git.carbslinux.org/wiki wiki
-	for(md in `{find wiki/wiki -name '*.md' ! -name 'index.md' }){
+	cd wiki
+	for(md in `{find wiki -name '*.md' ! -name 'index.md' }){
 	printf '\n### Git Commit Information\n\n' >> $md
-	git -C $PWD/wiki log $md | grep Date | sed 's/Date:/* **Last Edit:**/;1q' >> $md
+	git -C $PWD log -- $md | grep Date | sed 's/Date:/* **Last Edit:**/;1q' >> $md
 	printf '* **Commit Message**: ' >> $md
-	git -C $PWD/wiki log -1 '--pretty=%B' $md | awk 'NF' >> $md
-	git -C $PWD/wiki log $md | grep Author | sed 's/Author:/* **Author:**/;1q' >> $md
+	git -C $PWD log -1 '--pretty=%B' -- $md | awk 'NF' >> $md
+	git -C $PWD log -- $md | grep Author | sed 's/Author:/* **Author:**/;1q' >> $md
 	}
+	cd ..
 	mv wiki/wiki src/wiki
 	rm -rf wiki
 	sh -c 'scripts/gen-wiki-index'
