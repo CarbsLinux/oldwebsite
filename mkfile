@@ -38,10 +38,10 @@ wiki:V:
 	git clone --quiet git://git.carbslinux.org/wiki /tmp/wiki
 	for(md in `{find /tmp/wiki/wiki -name '*.md' ! -name 'index.md' }){
 	printf '\n### Git Commit Information\n\n' >> $md
-	git -C /tmp/wiki log -- $md | grep Date | sed 's/Date:/* **Last Edit:**/;1q' >> $md
+	GIT_DIR=/tmp/wiki/.git git -C /tmp/wiki log -- $md | grep Date | sed 's/Date:/* **Last Edit:**/;1q' >> $md
 	printf '* **Commit Message**: ' >> $md
-	git -C /tmp/wiki log -1 '--pretty=%B' -- $md | awk 'NF' >> $md
-	git -C /tmp/wiki log -- $md | grep Author | sed 's/Author:/* **Author:**/;1q' >> $md
+	GIT_DIR=/tmp/wiki/.git git -C /tmp/wiki log -1 '--pretty=%B' -- $md | awk 'NF' >> $md
+	GIT_DIR=/tmp/wiki/.git git -C /tmp/wiki log -- $md | grep Author | sed 's/Author:/* **Author:**/;1q' >> $md
 	}
 	mv /tmp/wiki/wiki src/wiki
 	rm -rf /tmp/wiki
