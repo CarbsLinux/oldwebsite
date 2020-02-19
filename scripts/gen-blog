@@ -55,4 +55,4 @@ done
 genrss > "$rootdir/rss.xml"
 mkdir -p "$rootdir/blog"
 genindex > "$rootdir/blog/index.md"
-install -m644 blog/*.md -t "$rootdir/blog"
+install -m644 -t "$rootdir/blog" blog/*.md
