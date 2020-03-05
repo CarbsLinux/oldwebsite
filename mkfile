@@ -43,7 +43,7 @@ wiki:V:
 	GIT_DIR=/tmp/wiki/.git git -C /tmp/wiki log -1 '--pretty=%B' -- $md | awk 'NF' >> $md
 	GIT_DIR=/tmp/wiki/.git git -C /tmp/wiki log -- $md | grep Author | sed 's/Author:/* **Author:**/;1q' >> $md
 	relapath=`{GIT_DIR=/tmp/wiki/.git git -C /tmp/wiki ls-files $md}
-	printf '* **[View Source](https://carbslinux.org/git/wiki/files/%s)**\n' $relapath >> $md
+	printf '* **[View Source](https://carbslinux.org/git/wiki/file/%s)**\n' $relapath >> $md
 	}
 	mv /tmp/wiki/wiki src/wiki
 	rm -rf /tmp/wiki
